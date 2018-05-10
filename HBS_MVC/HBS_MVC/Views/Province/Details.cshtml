@@ -1,0 +1,40 @@
+﻿@model HBS_MVC.Models.Province
+
+@{
+    ViewBag.Title = "Province Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_ProvinceBreadcrumb")
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Province Details</h5>
+                    <div class="ibox-tools">
+                        <span id="goBack" title="Click here to go back">
+                            @Html.ActionLink("Go Back", "Index")
+                        </span>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProvinceID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

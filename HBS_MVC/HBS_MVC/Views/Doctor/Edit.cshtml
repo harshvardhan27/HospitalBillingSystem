@@ -1,0 +1,141 @@
+﻿@model HBS_MVC.Models.Doctor
+
+@{
+    ViewBag.Title = "Edit Doctor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Html.Partial("_DoctorBreadcrumb")
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Edit Province</h5>
+                    <div class="ibox-tools">
+                        <span id="goBack" title="Click here to go back to province list">
+                            @Html.ActionLink("Back to list", "Index")
+                        </span>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.DoctorID)
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Firstname", @autocomplete = "off" } })
+                                            @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Lastname", @autocomplete = "off" } })
+                                            @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Appartment, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.Appartment, new { htmlAttributes = new { @class = "form-control", @placeholder = "Appartment", @autocomplete = "off" } })
+                                            @Html.ValidationMessageFor(model => model.Appartment, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Street, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.Street, new { htmlAttributes = new { @class = "form-control", @placeholder = "Street", @autocomplete = "off" } })
+                                            @Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @placeholder = "City", @autocomplete = "off" } })
+                                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Postalcode, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.Postalcode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Postal Code", @autocomplete = "off" } })
+                                            @Html.ValidationMessageFor(model => model.Postalcode, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ProvinceID, "Province", htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @*@Html.DropDownList("ProvinceID", null, "Select Province", htmlAttributes: new { @class = "form-control chosen-select" })*@
+                                            @Html.DropDownList("ProvinceID", null, htmlAttributes: new { @class = "form-control chosen-select" })
+                                            @Html.ValidationMessageFor(model => model.ProvinceID, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", @placeholder = "Country", @autocomplete = "off" } })
+                                            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Dob, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.Dob.Value.ToString().Split(' ')[0], new { htmlAttributes = new { @class = "form-control", @placeholder = "Date of birth", @autocomplete = "off" } })
+                                            @Html.ValidationMessageFor(model => model.Dob, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email", @autocomplete = "off" } })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Contactno, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.Contactno, new { htmlAttributes = new { @class = "form-control", @placeholder = "Contact no", @autocomplete = "off" } })
+                                            @Html.ValidationMessageFor(model => model.Contactno, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="col-md-offset-4 col-md-8">
+                                            <input type="submit" value="Update" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.chosen-select').chosen({
+                width: "100%",
+                allow_single_deselect: true
+            });
+        });
+    </script>
+}

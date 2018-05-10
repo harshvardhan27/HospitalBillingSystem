@@ -1,0 +1,50 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">
+                                    <label>Welcome to Medanta +</label>
+                                </strong>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+                <div class="logo-element">
+                    M+
+                </div>
+            </li>
+            @*<li>
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-label">Patient</span>
+                    <span class="fa arrow">
+                    </span>
+                </a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="Profile.aspx">Profile</a></li>
+                    <li><a href="Appointment.aspx">Appointment</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-money"></i><span class="nav-label">Payment</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="Bill.aspx">Create/View Bill</a></li>
+                </ul>
+            </li>*@
+            <li class="@Html.IsSelected(controller: "Province")">
+                <a href="@Url.Action("Index", "Province")"><i class="fa fa-globe" aria-hidden="true"></i> <span class="nav-label">Province</span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Doctor")">
+                <a href="@Url.Action("Index", "Doctor")"><i class="fa fa-address-book-o" aria-hidden="true"></i> <span class="nav-label">Doctor</span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Patient")">
+                <a href="@Url.Action("Index", "Patient")"><i class="fa fa-address-book-o" aria-hidden="true"></i> <span class="nav-label">Patient</span></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>

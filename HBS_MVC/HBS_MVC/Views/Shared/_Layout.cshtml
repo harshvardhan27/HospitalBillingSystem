@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medanta+ | @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/modernizr")
+    @Styles.Render("~/font-awesome/css")
+
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+    @Styles.Render("~/Content/plugins/chosen/chosenStyles")
+    @Styles.Render("~/plugins/clockpickerStyles")
+
+
+</head>
+<body>
+    <div id="wrapper">
+        @Html.Partial("_NavigationPartial")
+        <div id="page-wrapper" class="gray-bg">
+            @Html.Partial("_HeaderPartial")
+            @RenderBody()
+            @Html.Partial("_FooterPartial")
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/plugins/slimScroll")
+    @Scripts.Render("~/bundles/inspinia")
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/chosen")
+    @Scripts.Render("~/plugins/clockpicker")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<HBS_MVC.Models.Province>
+
+@{
+    ViewBag.Title = "Province";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_ProvinceBreadcrumb")
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Province Table</h5>
+                    <div class="ibox-tools">
+                        <span id="addNewRecord" title="Click here to create new province">
+                            @Html.ActionLink("Create New", "Create")
+                        </span>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dtProvince">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                                    <th>@Html.LabelForModel("Action")</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                                    <th>@Html.LabelForModel("Action")</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dtProvince').DataTable({
+                "ajax": "GetProvinces",
+                "pageLength": 5,
+                "responsive": true,
+                "lengthMenu": [[5, 25, 50, -1], [5, 25, 50, "All"]],
+                "dom": '<"html5buttons"B>lTfgitp',
+                "buttons": [
+                    { extend: 'copy' },
+                    { extend: 'csv', title: '@ViewBag.Title' + '_File' },
+                    { extend: 'excel', title: '@ViewBag.Title' + '_File' },
+                    { extend: 'pdf', title: '@ViewBag.Title' + '_File' },
+                    {
+                        extend: 'print',
+                        customize: function (win) {
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                        }
+                    }
+                ],
+                "columns": [
+                   { "data": "Name", "width": "75%" },
+                   //{ "data": "ID", "render": function (data, type, full, meta) { return '<a href="@Url.Action("Edit", "Province")?id=' + data + '">Edit</a>'; } }
+                   {
+                       "data": "ProvinceID", "width": "25%", "class": "links", "sortable": false, "render": function (data, type, full, meta) {
+                           var links = '@Html.ActionLink("Edit", "Edit",new {id="id"})'.replace("id", data) + ' | ' + '@Html.ActionLink("Details", "Details",new {id="id"})'.replace("id", data) + ' | ' + '@Html.ActionLink("Delete", "Delete",new {id="id"})'.replace("id", data);
+                           return links;
+                       }
+                   }
+                ]
+
+            });
+        });
+    </script>
+}
