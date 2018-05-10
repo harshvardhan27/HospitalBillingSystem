@@ -1,0 +1,15 @@
+﻿.ibox-tools .dropdown-menu > li > label {
+    padding: 4px 10px;
+    font-size: 12px;
+}
+
+.input-group.date,.input-group.clockpicker {
+    width: 64%;
+    padding-left: 15px;
+}
+.select2.select2-container.select2-container--default{
+    width:100% !important;
+}
+.has-error .help-block {
+    color: #ed5565 !important;
+}

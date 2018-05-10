@@ -1,0 +1,126 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Application.master.cs" Inherits="HBS.Application"  ClientIDMode="Static"%>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Medanta + | <%: Page.Title %></title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/font-awsome/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- Toastr style -->
+    <link href="assets/css/plugins/toastr/toastr.min.css" rel="stylesheet" />
+    <!-- Gritter -->
+    <link href="assets/js/plugins/gritter/jquery.gritter.css" rel="stylesheet" />
+    <!-- Datatables -->
+    <link href="assets/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+    <!-- Chosen -->
+    <link href="assets/css/plugins/chosen/bootstrap-chosen.css" rel="stylesheet" />
+    <!-- Select2 -->
+    <link href="assets/css/plugins/select2/select2.min.css" rel="stylesheet">
+    <!-- Datepicker -->
+    <link href="assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <!-- Clock Picker -->
+    <link href="assets/css/plugins/clockpicker/clockpicker.css" rel="stylesheet" />
+
+
+    <link href="assests/css/animate.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/custom.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="cphHeader" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+    <!-- Mainly scripts -->
+    <script src="assets/js/jquery-3.1.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- Datatable -->
+    <script src="assets/js/plugins/dataTables/datatables.min.js"></script>
+    <!-- Select2 -->
+    <script src="assets/js/plugins/select2/select2.full.min.js"></script>
+    <!-- Chosen -->
+    <script src="assets/js/plugins/chosen/chosen.jquery.js"></script>
+    <!-- Data picker -->
+    <script src="assets/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+     <!-- Clock Picker -->
+    <script src="assets/js/plugins/clockpicker/clockpicker.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="assets/js/inspinia.js"></script>
+    <script src="assets/js/plugins/pace/pace.min.js"></script>
+    <script src="assets/js/project/custom/custom.js"></script>
+
+</head>
+<body>
+    <form class="form-horizontal" runat="server" data-toggle="validator" autocomplete="off">
+        <div id="wrapper">
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav metismenu" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element">
+                                <span>
+                                    <img alt="image" class="img-circle" src="assets/img/profile_small.jpg" />
+                                </span>
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                    <span class="clear">
+                                        <span class="block m-t-xs"><strong class="font-bold">
+                                            <label>Harsh</label></strong></span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="logo-element">
+                                M+
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user"></i><span class="nav-label">Patient</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="Profile.aspx">Profile</a></li>
+                                <li><a href="Appointment.aspx">Appointment</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-money"></i><span class="nav-label">Payment</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="Bill.aspx">Create/View Bill</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+
+            <div id="page-wrapper" class="gray-bg">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header">
+                            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <asp:LinkButton ID="logout" OnClick="logout_Click" runat="server"><i class="fa fa-sign-out"></i> Logout</asp:LinkButton>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <asp:ContentPlaceHolder ID="cphContent" runat="server">
+                </asp:ContentPlaceHolder>
+                <div class="footer">
+                    <div class="pull-right">
+                        <strong>Copyright</strong> Medanta + &copy; 2017
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
